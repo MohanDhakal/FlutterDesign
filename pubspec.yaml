@@ -55,6 +55,10 @@ flutter:
     - assets/images/card2.png
     - assets/images/health.png
     - assets/images/binaural.png
+    - assets/images/relationship.png
+    - assets/images/relationship-1.png
+    - assets/images/healing.png
+    - assets/images/nature2.png
 
     # - images/a_dot_ham.jpeg
 
@@ -70,13 +74,15 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Helvetica
+    - family: HelveticaNeue
       fonts:
-        - asset: assets/fonts/HelveticaNeueMedium.ttf
+        - asset: assets/fonts/HelveticaNeue-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/HelveticaNeue-Medium.otf
           weight: 500
         - asset: assets/fonts/HelveticaNeue-Thin.otf
           weight: 100
-        
+
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

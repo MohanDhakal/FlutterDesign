@@ -1,3 +1,4 @@
 - hex to rgb converter
 - getx state management
 - screen util package
+- focus on the search bar 
