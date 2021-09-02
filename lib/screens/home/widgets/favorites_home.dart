@@ -33,7 +33,7 @@ class Favorites extends StatelessWidget {
                 ),
               )),
           Container(
-            width: 210.w,
+            width: 200.w,
             height: 46.h,
             margin: EdgeInsets.only(top: 10, bottom: 10),
             child: Text(

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_bloc_test/colors.dart';
+import 'package:flutter_bloc_test/utils/core/colors.dart';
+import 'package:flutter_bloc_test/screens/home/widgets/category_home.dart';
 import 'package:flutter_bloc_test/utils/home/card_data.dart';
 import 'package:flutter_bloc_test/utils/home/explore_data.dart';
 import 'package:flutter_bloc_test/utils/home/favorites_data.dart';
-import 'package:flutter_bloc_test/widgets/card_home.dart';
-import 'package:flutter_bloc_test/widgets/category_home.dart';
-import 'package:flutter_bloc_test/widgets/explore_home.dart';
-import 'package:flutter_bloc_test/widgets/favorites_home.dart';
+import 'package:flutter_bloc_test/screens/home/widgets/card_home.dart';
+import 'package:flutter_bloc_test/screens/home/widgets/explore_home.dart';
+import 'package:flutter_bloc_test/screens/home/widgets/favorites_home.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -256,7 +256,7 @@ class _HomeUIState extends State<HomeUI> {
                 height: 16.h,
               ),
               Container(
-                  height: 235.h,
+                  height: 240.h,
                   margin: EdgeInsets.only(left: 26.w),
                   child: ListView.builder(
                       itemCount: cards.length,
@@ -315,7 +315,7 @@ class _HomeUIState extends State<HomeUI> {
                 ),
               ),
               Container(
-                height: 185,
+                height: 210,
                 margin: EdgeInsets.only(
                   left: 26.w,
                 ),

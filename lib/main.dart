@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_bloc_test/colors.dart';
-import 'package:flutter_bloc_test/screens/explore_detail.dart';
+import 'package:flutter_bloc_test/utils/core/colors.dart';
+import 'package:flutter_bloc_test/screens/explore/page/explore_detail.dart';
 import 'package:flutter_bloc_test/screens/test.dart';
-import 'screens/home.dart';
+import 'screens/home/page/home.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {

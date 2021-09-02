@@ -38,8 +38,7 @@ class _CategoryState extends State<Category> {
                 boxShadow: [
                   BoxShadow(
                       color: Color(0x1A51515F),
-                      blurRadius: 80.r,
-                      spreadRadius: 10.r,
+                      blurRadius: 10.r,
                       offset: Offset(0, 3))
                 ]),
             child: Icon(widget.icon),

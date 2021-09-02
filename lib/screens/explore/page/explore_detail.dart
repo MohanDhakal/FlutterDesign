@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_bloc_test/colors.dart';
-import 'package:flutter_bloc_test/widgets/music_explore.dart';
+import 'package:flutter_bloc_test/utils/core/colors.dart';
+import 'package:flutter_bloc_test/screens/explore/widgets/music_explore.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ExploreDetail extends StatefulWidget {

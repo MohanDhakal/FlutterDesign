@@ -11,14 +11,14 @@ class CardView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 153.w,
-      height: 235.h,
-      margin: EdgeInsets.only(left:5.w,right:5.w,top: 5.w,bottom: 10.h),
+      height: 240.h,
+      margin: EdgeInsets.only(left:5.w,right:5.w,top: 5.w,bottom: 15.h),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8.r),
           color: Colors.white,
           boxShadow: [
             BoxShadow(
-                offset: Offset(1, 4), color: Color(0x1A51515F), blurRadius: 10.r)
+                offset: Offset(0, 7), color: Color(0x1A51515F), blurRadius: 10.r)
           ]),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

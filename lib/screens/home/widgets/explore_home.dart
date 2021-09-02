@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc_test/screens/explore_detail.dart';
+import 'package:flutter_bloc_test/screens/explore/page/explore_detail.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Explore extends StatelessWidget {
@@ -17,14 +17,14 @@ class Explore extends StatelessWidget {
     return InkWell(
       onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context)=>ExploreDetail())),
       child: Container(
-        width: 133.w,
-        height: 185,
+        width: 153.w,
+        height: 210.h,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8.r),
             color: Colors.white,
             boxShadow: [
               BoxShadow(
-                  offset: Offset(0, 4), color: Color(0x1A51515F), blurRadius: 10)
+                  offset: Offset(0, 4), color: Color(0x1A51515F), blurRadius: 20)
             ]),
         margin: EdgeInsets.only(left: 5, top: 5, right: 5,bottom: 10),
         child: Column(
