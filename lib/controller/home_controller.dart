@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc_test/middleware/local/home.dart';
 import 'package:flutter_bloc_test/models/home/recommendation.dart';
 import 'package:get/get.dart';
 
@@ -20,26 +21,18 @@ class HomeController extends GetxController {
   void onInit() {
     super.onInit();
     SystemChrome.setEnabledSystemUIOverlays([]);
-    _fetchJsonData();
+    LocalService.fetchJsonData().then((value) {
+      List<dynamic> jsonResponse = json.decode(value);
+
+      jsonResponse.forEach((element) {
+        recommendations.add(Recommendation.fromJson(element));
+      });
+    });
   }
 
   @override
   void dispose() {
     SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
     super.dispose();
-  }
-
-  void _fetchJsonData() async {
-    try {
-      String jsonString =
-          await rootBundle.loadString("assets/data/recommendations.json");
-      List<dynamic> jsonResponse = json.decode(jsonString);
-
-      jsonResponse.forEach((element) {
-        recommendations.add(Recommendation.fromJson(element));
-      });
-    } on Exception catch (e) {
-      print("$e");
-    }
   }
 }
