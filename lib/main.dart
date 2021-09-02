@@ -3,9 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc_test/utils/core/colors.dart';
 import 'package:flutter_bloc_test/screens/explore/page/explore_detail.dart';
 import 'package:flutter_bloc_test/screens/test.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'screens/home/page/home.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 void main() {
   runApp(MyApp());
 }
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         statusBarColor: background, statusBarBrightness: Brightness.dark));
     return ScreenUtilInit(
       designSize: Size(375, 812),
-      builder: () => MaterialApp(
+      builder: () => GetMaterialApp(
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
         // color: background,

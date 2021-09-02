@@ -30,6 +30,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_svg: ^0.22.0
   flutter_screenutil: ^5.0.0+2
+  get: ^4.3.8
 
 dev_dependencies:
   flutter_test:
@@ -59,6 +60,7 @@ flutter:
     - assets/images/relationship-1.png
     - assets/images/healing.png
     - assets/images/nature2.png
+    - assets/data/recommendations.json
 
     # - images/a_dot_ham.jpeg
 

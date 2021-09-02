@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc_test/controller/home_controller.dart';
 import 'package:flutter_bloc_test/utils/core/colors.dart';
 import 'package:flutter_bloc_test/screens/home/widgets/category_home.dart';
 import 'package:flutter_bloc_test/utils/home/card_data.dart';
@@ -11,31 +12,16 @@ import 'package:flutter_bloc_test/screens/home/widgets/explore_home.dart';
 import 'package:flutter_bloc_test/screens/home/widgets/favorites_home.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
-class HomeUI extends StatefulWidget {
-  const HomeUI({Key? key}) : super(key: key);
 
-  @override
-  _HomeUIState createState() => _HomeUIState();
-}
-
-class _HomeUIState extends State<HomeUI> {
+class HomeUI extends StatelessWidget {
   final name = "Alex";
-  @override
-  void initState() {
-    SystemChrome.setEnabledSystemUIOverlays([]);
-    super.initState();
-  }
-  @override
-  void dispose() {
-    SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
-    super.dispose();
-  }
+
+  final HomeController _homeController = Get.put(HomeController());
 
   @override
   Widget build(BuildContext context) {
-    // SystemChrome.setEnabledSystemUIOverlays([]);
-
     return Material(
       child: SingleChildScrollView(
         physics: ClampingScrollPhysics(),
@@ -258,12 +244,21 @@ class _HomeUIState extends State<HomeUI> {
               Container(
                   height: 240.h,
                   margin: EdgeInsets.only(left: 26.w),
-                  child: ListView.builder(
-                      itemCount: cards.length,
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) {
-                        return cards[index];
-                      })),
+                  child: GetX<HomeController>(
+                    builder: (controller) {
+                      return (controller.recommendations.length>0)? ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: controller.recommendations.length,
+                          itemBuilder: (context, index) {
+                            return CardView(
+                              text: controller.recommendations.elementAt(index).text,
+                              imagePath: controller.recommendations.elementAt(index).imagePath,
+                            );
+                          }):SizedBox(
+                        child: Text("No recommendations..."),
+                      );
+                    }
+                  )),
               SizedBox(
                 height: 16.h,
               ),
@@ -349,14 +344,14 @@ class _HomeUIState extends State<HomeUI> {
       ),
     );
   }
-
-  List<CardView> get cards {
-    return List<CardView>.generate(
-      3,
-      (index) => CardView(
-        text: CardData.cardTxt[index],
-        imagePath: CardData.cardImg[index],
-      ),
-    );
-  }
+  //
+  // List<CardView> get cards {
+  //   return List<CardView>.generate(
+  //     3,
+  //     (index) => CardView(
+  //       text: CardData.cardTxt[index],
+  //       imagePath: CardData.cardImg[index],
+  //     ),
+  //   );
+  // }
 }
