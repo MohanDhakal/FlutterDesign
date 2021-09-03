@@ -20,6 +20,13 @@ class HomeController extends GetxController {
   List<Recommendation> get recommendationList {
     return this.recommendations;
   }
+  // void togglePlaying(int atIndex){
+  //   if(explorations.elementAt(atIndex).isPlaying){
+  //     explorations.elementAt(atIndex).isPlaying=false;
+  //   }else{
+  //     explorations.elementAt(atIndex).isPlaying=true;
+  //   }
+  // }
 
   @override
   void onInit() {
@@ -38,7 +45,7 @@ class HomeController extends GetxController {
     //fetching exploration
     LocalService.fetchExplores().then((value) {
       List<dynamic> exploreList = json.decode(value);
-      print(exploreList);
+      // print(exploreList);
       exploreList.forEach((element) {
         explorations.add(Explore.fromJson(element));
       });
@@ -46,8 +53,7 @@ class HomeController extends GetxController {
     //fetching favorites
     LocalService.fetchFavorites().then((value) {
       List<dynamic> favorList = json.decode(value);
-      print(favorList);
-
+      // print(favorList);
       favorList.forEach((element) {
         favorites.add(Favorites.fromJson(element));
       });

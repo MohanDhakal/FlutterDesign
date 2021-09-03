@@ -14,22 +14,10 @@ class ExploreDetail extends StatefulWidget {
 }
 
 class _ExploreDetailState extends State<ExploreDetail> {
-  @override
-  void initState() {
-    SystemChrome.setEnabledSystemUIOverlays([]);
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
-
-    super.dispose();
-  }
+  bool selected = false;
 
   @override
   Widget build(BuildContext context) {
-    // var size = MediaQuery.of(context).size;
     return Material(
       child: Container(
         child: Stack(
@@ -58,7 +46,12 @@ class _ExploreDetailState extends State<ExploreDetail> {
             Positioned(
                 top: 46.h,
                 left: 325.w,
-                child: SvgPicture.asset("assets/images/Download.svg", color: Colors.white, height: 20.h,width: 21,)),
+                child: SvgPicture.asset(
+                  "assets/images/Download.svg",
+                  color: Colors.white,
+                  height: 20.h,
+                  width: 21,
+                )),
             Positioned(
               top: 173.h,
               left: 26.w,
@@ -133,45 +126,49 @@ class _ExploreDetailState extends State<ExploreDetail> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: EdgeInsets.only(left: 26.w, top: 16.h,bottom: 16.h),
-                              child: SvgPicture.asset(
-                                "assets/images/heart.svg",
-                                height: 16,
-                                color: Color(0xFF9797DE),
-                                width: 16,
-                                fit: BoxFit.cover,
+                              padding: EdgeInsets.only(
+                                  left: 26.w, top: 16.h, bottom: 16.h),
+                              child: GestureDetector(
+                                onTap: () {
+                                  setState(() => selected = !selected);
+                                },
+                                child: SvgPicture.asset(
+                                  "assets/images/heart.svg",
+                                  height: 20.h,
+                                  color: selected ? Color(0xFF9797DE):null,
+                                  width: 20.w,
+                                ),
                               ),
                             ),
                             Padding(
                               padding: EdgeInsets.only(left: 26.0, top: 16.h),
                               child: SvgPicture.asset(
                                 "assets/images/menu.svg",
-                                height: 16,
-                                width: 16,
+                                height: 20.h,
+                                width: 20.w,
                               ),
                             ),
-                            ],
+                          ],
                         ),
                         Column(
                           children: [
                             Music(
-                              isActive: true,
+                              isPlaying: false,
                             ),
-                            Music(isActive: false),
-                            Music(isActive: false)
+                            Music(isPlaying: false),
+                            Music(isPlaying: true)
                           ],
                         )
                       ],
                     ),
                   ),
                   Positioned(
-                      top: -36,
-                      right: 33,
-                      child: SvgPicture.asset(
-                        "assets/images/play.svg",
-                        height: 72,
-                        color: Color(0xFF9797DE),
-                        width: 72,
+                      top: -36.h,
+                      right: 33.w,
+                      child: Image.asset(
+                        "assets/images/play.png",
+                        height: 80.h,
+                        width: 80.w,
                       ))
                   // ] ),
                 ],
@@ -181,5 +178,18 @@ class _ExploreDetailState extends State<ExploreDetail> {
         ),
       ),
     );
+  }
+
+  @override
+  void initState() {
+    SystemChrome.setEnabledSystemUIOverlays([]);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
+
+    super.dispose();
   }
 }

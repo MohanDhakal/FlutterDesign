@@ -1,9 +1,10 @@
-class Explore{
-  String title,imagePath,subtitle;
-  Explore(this.title,this.imagePath,this.subtitle);
+class Explore {
+  String title, imagePath, subtitle;
+  bool isPlaying;
 
-  factory Explore.fromJson(Map<String,dynamic> data){
-    return Explore(data['title'],data["imagePath"],data["subtitle"]);
+  Explore(this.title, this.imagePath, this.subtitle, [this.isPlaying = false]);
+
+  factory Explore.fromJson(Map<String, dynamic> data) {
+    return Explore(data['title'], data["imagePath"], data["subtitle"]);
   }
-
 }

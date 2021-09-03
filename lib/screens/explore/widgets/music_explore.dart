@@ -3,8 +3,8 @@ import 'package:flutter_bloc_test/utils/home/explore_data.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Music extends StatefulWidget {
-  final bool isActive;
-  const Music({Key? key,required this.isActive}) : super(key: key);
+  final bool isPlaying;
+  const Music({Key? key,required this.isPlaying}) : super(key: key);
 
   @override
   _MusicState createState() => _MusicState();
@@ -22,7 +22,7 @@ class _MusicState extends State<Music> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(6.r),
         color:
-            widget.isActive ? Color(0xFF9797DE).withOpacity(0.16) : Colors.transparent,
+            widget.isPlaying ? Color(0xFF9797DE).withOpacity(0.16) : Colors.transparent,
       ),
       child: Row(
         children: [
