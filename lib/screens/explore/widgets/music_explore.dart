@@ -18,6 +18,7 @@ class _MusicState extends State<Music> {
       height: 88.h,
       width: 323.w,
       margin: EdgeInsets.all(10),
+      padding: EdgeInsets.all(5),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(6.r),
         color:

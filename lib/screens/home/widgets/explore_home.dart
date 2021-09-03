@@ -24,7 +24,7 @@ class Explore extends StatelessWidget {
             color: Colors.white,
             boxShadow: [
               BoxShadow(
-                  offset: Offset(0, 4), color: Color(0x1A51515F), blurRadius: 20)
+                  offset: Offset(0, 4), color: Color(0x1A51515F), blurRadius: 10)
             ]),
         margin: EdgeInsets.only(left: 5, top: 5, right: 5,bottom: 10),
         child: Column(

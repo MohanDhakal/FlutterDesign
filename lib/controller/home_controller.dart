@@ -13,8 +13,8 @@ class HomeController extends GetxController {
   List<Explore> explorations = <Explore>[].obs;
   List<Favorites> favorites = <Favorites>[].obs;
 
-   set triggerBtn(RxBool status) {
-    this.isActive = status;
+  void triggerBtn() {
+    isActive.toggle();
   }
 
   List<Recommendation> get recommendationList {
@@ -52,7 +52,6 @@ class HomeController extends GetxController {
         favorites.add(Favorites.fromJson(element));
       });
     });
-
   }
 
   @override

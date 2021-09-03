@@ -18,7 +18,7 @@ class CardView extends StatelessWidget {
           color: Colors.white,
           boxShadow: [
             BoxShadow(
-                offset: Offset(0, 7), color: Color(0x1A51515F), blurRadius: 10.r)
+                offset: Offset(0, 4), color: Color(0x1A51515F), blurRadius: 8.r)
           ]),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

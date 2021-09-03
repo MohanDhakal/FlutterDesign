@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class Favorites extends StatelessWidget {
   final String text, imagePath;
@@ -25,7 +26,7 @@ class Favorites extends StatelessWidget {
           ClipRRect(
               borderRadius: BorderRadius.circular(8.r),
               child: Padding(
-                padding: EdgeInsets.all(10.w),
+                padding: EdgeInsets.only(left:5.w,right: 15.w,top: 5.h,bottom: 5.h),
                 child: Image.asset(
                   imagePath,
                   height: 46.h,
@@ -35,7 +36,7 @@ class Favorites extends StatelessWidget {
           Container(
             width: 200.w,
             height: 46.h,
-            margin: EdgeInsets.only(top: 10, bottom: 10),
+            margin: EdgeInsets.only(top: 5.h, bottom: 5.h,right: 14.w),
             child: Text(
               text,
               maxLines: 3,
@@ -44,7 +45,7 @@ class Favorites extends StatelessWidget {
                   fontSize: 10.sp),
             ),
           ),
-          Icon(Icons.star_purple500)
+          SvgPicture.asset("assets/images/heart.svg",height:16,color: Color(0xFF9797DE) , width:16 ,)
         ],
       ),
     );

@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc_test/utils/core/colors.dart';
 import 'package:flutter_bloc_test/screens/explore/widgets/music_explore.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class ExploreDetail extends StatefulWidget {
   const ExploreDetail({Key? key}) : super(key: key);
@@ -13,17 +14,19 @@ class ExploreDetail extends StatefulWidget {
 }
 
 class _ExploreDetailState extends State<ExploreDetail> {
-@override
+  @override
   void initState() {
-  SystemChrome.setEnabledSystemUIOverlays([]);
-  super.initState();
+    SystemChrome.setEnabledSystemUIOverlays([]);
+    super.initState();
   }
+
   @override
   void dispose() {
     SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
 
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     // var size = MediaQuery.of(context).size;
@@ -42,7 +45,7 @@ class _ExploreDetailState extends State<ExploreDetail> {
               top: 44.h,
               left: 26.h,
               child: InkWell(
-                onTap: (){
+                onTap: () {
                   Navigator.pop(context);
                 },
                 child: Icon(
@@ -52,6 +55,10 @@ class _ExploreDetailState extends State<ExploreDetail> {
                 ),
               ),
             ),
+            Positioned(
+                top: 46.h,
+                left: 325.w,
+                child: SvgPicture.asset("assets/images/Download.svg", color: Colors.white, height: 20.h,width: 21,)),
             Positioned(
               top: 173.h,
               left: 26.w,
@@ -109,39 +116,67 @@ class _ExploreDetailState extends State<ExploreDetail> {
               ),
             ),
             Positioned(
-              top: 270.h,
-              child: Container(
-                width: 375.w,
-                // height: 200.h,
-                decoration: BoxDecoration(
-                    color:background,
-                    borderRadius:
-                        BorderRadius.only(topRight: Radius.circular(60))),
-                child: Column(
-                  children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+              top: 275.h,
+              child: Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  Container(
+                    width: 375.w,
+                    // height: 200.h,
+                    decoration: BoxDecoration(
+                        color: background,
+                        borderRadius:
+                            BorderRadius.only(topRight: Radius.circular(40))),
+                    child: Column(
                       children: [
-                        Padding(
-                          padding: EdgeInsets.only(left: 28.w, top: 20.h),
-                          child: Icon(Icons.circle),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(left: 26.w, top: 16.h,bottom: 16.h),
+                              child: SvgPicture.asset(
+                                "assets/images/heart.svg",
+                                height: 16,
+                                color: Color(0xFF9797DE),
+                                width: 16,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 26.0, top: 16.h),
+                              child: SvgPicture.asset(
+                                "assets/images/menu.svg",
+                                height: 16,
+                                width: 16,
+                              ),
+                            ),
+                            ],
                         ),
-                        Padding(
-                          padding: EdgeInsets.only(left: 19.0, top: 20.h),
-                          child: Icon(Icons.menu),
-                        ),
+                        Column(
+                          children: [
+                            Music(
+                              isActive: true,
+                            ),
+                            Music(isActive: false),
+                            Music(isActive: false)
+                          ],
+                        )
                       ],
                     ),
-                    Music(isActive: true,),
-                    Music(isActive:false),
-                    Music(isActive:false)
-                  ],
-                ),
+                  ),
+                  Positioned(
+                      top: -36,
+                      right: 33,
+                      child: SvgPicture.asset(
+                        "assets/images/play.svg",
+                        height: 72,
+                        color: Color(0xFF9797DE),
+                        width: 72,
+                      ))
+                  // ] ),
+                ],
               ),
             ),
-            // Positioned(top: 351.h, left: 26.h, right: 26.h, child: Music(
-            //
-            // ))
           ],
         ),
       ),

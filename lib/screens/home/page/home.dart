@@ -17,7 +17,7 @@ import 'package:get/get.dart';
 class HomeUI extends StatelessWidget {
   final name = "Alex";
 
-  final HomeController _homeController = Get.put(HomeController());
+  final HomeController _homeController = Get.put(HomeController(),);
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +77,7 @@ class HomeUI extends StatelessWidget {
                       children: [
                         Container(
                           width: 274.w,
-                          height: 40.h,
+                          height: 45.h,
                           decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(6.r),
@@ -101,13 +101,16 @@ class HomeUI extends StatelessWidget {
                         ),
                         Positioned(
                           left: 16.w,
-                          top: 14.h,
+                          top: 11.h,
                           bottom: 14.h,
-                          child: Icon(
-                            Icons.search,
-                            size: 14,
-                            color: Color(0x99000000),
-                          ),
+                          child:
+                          SvgPicture.asset("assets/images/search.svg",
+                              height: 14,width: 14,color: Color(0x99000000)),
+                          // child: Icon(
+                          //   Icons.search_rounded,
+                          //   size: 14,
+                          //   color: Color(0x99000000),
+                          // ),
                         ),
                         Positioned(
                           left: 38.w,
@@ -181,20 +184,21 @@ class HomeUI extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
+
                           Category(
-                            icon: Icons.mediation,
+                            icon: "assets/images/meditate.svg",
                             name: 'Calm',
                           ),
                           Category(
-                            icon: Icons.mediation,
+                            icon: "assets/images/sleep.svg",
                             name: 'Sleep',
                           ),
                           Category(
-                            icon: Icons.mediation_rounded,
+                            icon: "assets/images/relationship.svg",
                             name: 'Relationship',
                           ),
                           Category(
-                            icon: Icons.mediation,
+                            icon: "assets/images/anxiety.svg",
                             name: 'Anxiety',
                           ),
                         ],
