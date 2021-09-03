@@ -61,6 +61,8 @@ flutter:
     - assets/images/healing.png
     - assets/images/nature2.png
     - assets/data/recommendations.json
+    - assets/data/explores.json
+    - assets/data/favorites.json
 
     # - images/a_dot_ham.jpeg
 

@@ -18,7 +18,10 @@ class Category extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        c.isActive = RxBool(true);
+        c.isActive.isTrue
+            ? c.triggerBtn = RxBool(false)
+            : c.triggerBtn = RxBool(true);
+        // c.triggerBtn = c.isActive.;
       },
       child: Column(
         children: [
@@ -45,7 +48,7 @@ class Category extends StatelessWidget {
             this.name,
             style: TextStyle(
               fontSize: 12.sp,
-              color: c.isActive.isTrue? Color(0xFF9797DE) : null,
+              color: c.isActive.isTrue ? Color(0xFF9797DE) : null,
             ),
           ),
         ],

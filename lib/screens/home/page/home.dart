@@ -14,7 +14,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
-
 class HomeUI extends StatelessWidget {
   final name = "Alex";
 
@@ -84,7 +83,7 @@ class HomeUI extends StatelessWidget {
                               borderRadius: BorderRadius.circular(6.r),
                               boxShadow: [
                                 BoxShadow(
-                                    offset: Offset(0,4),
+                                    offset: Offset(0, 4),
                                     color: Color(0x3351515F),
                                     // spreadRadius: 2.r,
                                     blurRadius: 80.r)
@@ -244,21 +243,25 @@ class HomeUI extends StatelessWidget {
               Container(
                   height: 240.h,
                   margin: EdgeInsets.only(left: 26.w),
-                  child: GetX<HomeController>(
-                    builder: (controller) {
-                      return (controller.recommendations.length>0)? ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: controller.recommendations.length,
-                          itemBuilder: (context, index) {
-                            return CardView(
-                              text: controller.recommendations.elementAt(index).text,
-                              imagePath: controller.recommendations.elementAt(index).imagePath,
-                            );
-                          }):SizedBox(
-                        child: Text("No recommendations..."),
-                      );
-                    }
-                  )),
+                  child: GetX<HomeController>(builder: (controller) {
+                    return (controller.recommendations.length > 0)
+                        ? ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: controller.recommendations.length,
+                            itemBuilder: (context, index) {
+                              return CardView(
+                                text: controller.recommendations
+                                    .elementAt(index)
+                                    .text,
+                                imagePath: controller.recommendations
+                                    .elementAt(index)
+                                    .imagePath,
+                              );
+                            })
+                        : SizedBox(
+                            child: Text("No recommendations..."),
+                          );
+                  })),
               SizedBox(
                 height: 16.h,
               ),
@@ -287,16 +290,22 @@ class HomeUI extends StatelessWidget {
               ),
               Padding(
                 padding: EdgeInsets.only(left: 26.w, right: 26.w),
-                child: Column(
-                  children: [
-                    Favorites(
-                        text: FavoritesData.fav1,
-                        imagePath: FavoritesData.icon1),
-                    Favorites(
-                        text: FavoritesData.fav2,
-                        imagePath: FavoritesData.icon2)
-                  ],
-                ),
+                child: (_homeController.favorites.length > 0)
+                    ? Column(
+                        children: [
+                          Favorites(
+                              text: _homeController.favorites.elementAt(0).text,
+                              imagePath: _homeController.favorites
+                                  .elementAt(0)
+                                  .iconPath),
+                          Favorites(
+                              text: _homeController.favorites.elementAt(1).text,
+                              imagePath: _homeController.favorites
+                                  .elementAt(0)
+                                  .iconPath)
+                        ],
+                      )
+                    : SizedBox(),
               ),
               SizedBox(height: 16.h),
               Padding(
@@ -310,31 +319,30 @@ class HomeUI extends StatelessWidget {
                 ),
               ),
               Container(
-                height: 210,
-                margin: EdgeInsets.only(
-                  left: 26.w,
-                ),
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: [
-                    Explore(
-                      imagePath: ExploreData.imagePath1,
-                      title: ExploreData.title1,
-                      subtitle: ExploreData.subtitle1,
-                    ),
-                    Explore(
-                      imagePath: ExploreData.imagePath2,
-                      title: ExploreData.title2,
-                      subtitle: ExploreData.subtitle2,
-                    ),
-                    Explore(
-                      imagePath: ExploreData.imagePath3,
-                      title: ExploreData.title3,
-                      subtitle: ExploreData.subtitle3,
-                    ),
-                  ],
-                ),
-              ),
+                  height: 210,
+                  margin: EdgeInsets.only(
+                    left: 26.w,
+                  ),
+                  child: GetX<HomeController>(builder: (controller) {
+                    return (controller.explorations.length > 0)
+                        ? ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: controller.explorations.length,
+                            itemBuilder: (context, index) {
+                              return Explore(
+                                imagePath: controller.explorations
+                                    .elementAt(index)
+                                    .imagePath,
+                                title: controller.explorations
+                                    .elementAt(index)
+                                    .title,
+                                subtitle: controller.explorations
+                                    .elementAt(index)
+                                    .subtitle,
+                              );
+                            })
+                        : SizedBox();
+                  })),
               SizedBox(
                 height: 16.h,
               )
@@ -344,14 +352,14 @@ class HomeUI extends StatelessWidget {
       ),
     );
   }
-  //
-  // List<CardView> get cards {
-  //   return List<CardView>.generate(
-  //     3,
-  //     (index) => CardView(
-  //       text: CardData.cardTxt[index],
-  //       imagePath: CardData.cardImg[index],
-  //     ),
-  //   );
-  // }
+//
+// List<CardView> get cards {
+//   return List<CardView>.generate(
+//     3,
+//     (index) => CardView(
+//       text: CardData.cardTxt[index],
+//       imagePath: CardData.cardImg[index],
+//     ),
+//   );
+// }
 }
