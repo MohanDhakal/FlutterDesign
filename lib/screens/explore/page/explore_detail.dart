@@ -7,7 +7,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class ExploreDetail extends StatefulWidget {
-  const ExploreDetail({Key? key}) : super(key: key);
+  final imagePath, title, subtitle;
+
+  const ExploreDetail({Key? key, this.imagePath, this.title, this.subtitle})
+      : super(key: key);
 
   @override
   _ExploreDetailState createState() => _ExploreDetailState();
@@ -15,6 +18,19 @@ class ExploreDetail extends StatefulWidget {
 
 class _ExploreDetailState extends State<ExploreDetail> {
   bool selected = false;
+  bool animated = false;
+
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setEnabledSystemUIOverlays([]);
+    Future.delayed(Duration(milliseconds: 200)).then((value) {
+      setState(() {
+        animated = true;
+      });
+    });
+    // Duration(milliseconds: 500)
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,17 +40,23 @@ class _ExploreDetailState extends State<ExploreDetail> {
           children: [
             Positioned(
                 child: Image.asset(
-              'assets/images/nature2.png',
-              height: 336.h,
-              width: 375.w,
-              fit: BoxFit.cover,
-            )),
+                  widget.imagePath,
+                  height: 336.h,
+                  width: 375.w,
+                  fit: BoxFit.cover,
+                )),
             Positioned(
               top: 44.h,
               left: 26.h,
               child: InkWell(
                 onTap: () {
-                  Navigator.pop(context);
+                  setState(() {
+                    animated = !animated;
+                  });
+                  Future.delayed(Duration(milliseconds:100 )).then((value) {
+                    print(value);
+                    Navigator.pop(context);
+                  });
                 },
                 child: Icon(
                   Icons.arrow_back_ios,
@@ -56,7 +78,7 @@ class _ExploreDetailState extends State<ExploreDetail> {
               top: 173.h,
               left: 26.w,
               child: Text(
-                "In the lap of nature",
+                widget.title,
                 style: TextStyle(
                     fontWeight: FontWeight.w700,
                     fontSize: 26.sp,
@@ -67,7 +89,7 @@ class _ExploreDetailState extends State<ExploreDetail> {
               top: 208.h,
               left: 26.w,
               child: Text(
-                "Nature",
+                widget.subtitle,
                 style: TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 15.sp,
@@ -135,7 +157,7 @@ class _ExploreDetailState extends State<ExploreDetail> {
                                 child: SvgPicture.asset(
                                   "assets/images/heart.svg",
                                   height: 20.h,
-                                  color: selected ? Color(0xFF9797DE):null,
+                                  color: selected ? Color(0xFF9797DE) : null,
                                   width: 20.w,
                                 ),
                               ),
@@ -150,6 +172,7 @@ class _ExploreDetailState extends State<ExploreDetail> {
                             ),
                           ],
                         ),
+
                         Column(
                           children: [
                             Music(
@@ -162,13 +185,22 @@ class _ExploreDetailState extends State<ExploreDetail> {
                       ],
                     ),
                   ),
-                  Positioned(
+                  AnimatedPositioned(
+                      duration: Duration(milliseconds: 200),
+                      curve: Curves.easeInOut,
                       top: -36.h,
-                      right: 33.w,
-                      child: Image.asset(
-                        "assets/images/play.png",
-                        height: 80.h,
-                        width: 80.w,
+                      width: 80.w,
+                      height: 80.h,
+                      right: animated ? 23.w : -20.w,
+                      child: AnimatedOpacity(
+                        duration: Duration(milliseconds: 200),
+                        curve: Curves.easeInOut,
+                        opacity: animated ? 1 : 0.5,
+                        child: Image.asset(
+                          "assets/images/play.png",
+                          height: 80.h,
+                          width: 80.w,
+                        ),
                       ))
                   // ] ),
                 ],
@@ -181,15 +213,8 @@ class _ExploreDetailState extends State<ExploreDetail> {
   }
 
   @override
-  void initState() {
-    SystemChrome.setEnabledSystemUIOverlays([]);
-    super.initState();
-  }
-
-  @override
   void dispose() {
-    SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
-
     super.dispose();
+    SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
   }
 }

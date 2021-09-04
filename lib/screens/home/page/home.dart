@@ -77,7 +77,7 @@ class HomeUI extends StatelessWidget {
                       children: [
                         Container(
                           width: 274.w,
-                          height: 45.h,
+                          height: 36.h,
                           decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(6.r),
@@ -102,10 +102,9 @@ class HomeUI extends StatelessWidget {
                         Positioned(
                           left: 16.w,
                           top: 11.h,
-                          bottom: 14.h,
                           child:
                           SvgPicture.asset("assets/images/search.svg",
-                              height: 14,width: 14,color: Color(0x99000000)),
+                              height: 14.h,width: 14.w,color: Color(0x99000000)),
                           // child: Icon(
                           //   Icons.search_rounded,
                           //   size: 14,
@@ -114,8 +113,7 @@ class HomeUI extends StatelessWidget {
                         ),
                         Positioned(
                           left: 38.w,
-                          top: 14.h,
-                          bottom: 14.h,
+                          top: 11.h,
                           child: SizedBox(
                               width: 177.w,
                               height: 15.h,
@@ -132,7 +130,7 @@ class HomeUI extends StatelessWidget {
                     Container(
                       margin: EdgeInsets.only(left: 6.w),
                       width: 36.w,
-                      height: 40.h,
+                      height: 36.h,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(6.r),
                           boxShadow: [
@@ -140,13 +138,14 @@ class HomeUI extends StatelessWidget {
                                 color: Color(0x3351515F),
                                 offset: Offset(0, 7),
                                 // spreadRadius: 4.r,
-                                blurRadius: 10.r)
+                                blurRadius: 20.r)
                           ],
                           color: filterBtn),
                       child: SvgPicture.asset(
                         "assets/images/filter.svg",
                         height: 24.w,
                         width: 24.h,
+                        fit: BoxFit.none,
                         color: Colors.white,
                       ),
                     )

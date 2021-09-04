@@ -14,8 +14,31 @@ class Explore extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Route _createRoute() {
+      return PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) => ExploreDetail(
+            imagePath: this.imagePath,
+            title: this.title,
+            subtitle: this.subtitle),
+        transitionDuration: Duration(milliseconds: 500),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          const begin = Offset(0, 1);
+          const end = Offset(0, 0);
+          const curve = Curves.easeOut;
+          // Animation<double> animation= ;
+          var tween =
+              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+          print(animation.value);
+          return SlideTransition(
+            position: animation.drive(tween),
+            child: child,
+          );
+        },
+      );
+    }
+
     return InkWell(
-      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context)=>ExploreDetail())),
+      onTap: () => Navigator.of(context).push(_createRoute()),
       child: Container(
         width: 153.w,
         height: 210.h,
@@ -24,9 +47,11 @@ class Explore extends StatelessWidget {
             color: Colors.white,
             boxShadow: [
               BoxShadow(
-                  offset: Offset(0, 4), color: Color(0x1A51515F), blurRadius: 10)
+                  offset: Offset(0, 4),
+                  color: Color(0x1A51515F),
+                  blurRadius: 8.r)
             ]),
-        margin: EdgeInsets.only(left: 5, top: 5, right: 5,bottom: 10),
+        margin: EdgeInsets.only(left: 5, top: 5, right: 5, bottom: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -34,7 +59,13 @@ class Explore extends StatelessWidget {
               padding: EdgeInsets.only(left: 10.w, right: 10.w, top: 10.w),
               child: ClipRRect(
                   borderRadius: BorderRadius.circular(8.r),
-                  child: Image.asset(imagePath)),
+                  child: SizedBox(
+                      height: 133,
+                      width: 133,
+                      child: Image.asset(
+                        imagePath,
+                        fit: BoxFit.cover,
+                      ))),
             ),
             Padding(
               padding: EdgeInsets.only(
