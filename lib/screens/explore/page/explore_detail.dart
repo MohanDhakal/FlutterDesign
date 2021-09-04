@@ -24,7 +24,7 @@ class _ExploreDetailState extends State<ExploreDetail> {
   void initState() {
     super.initState();
     SystemChrome.setEnabledSystemUIOverlays([]);
-    Future.delayed(Duration(milliseconds: 200)).then((value) {
+    Future.delayed(Duration(milliseconds: 300)).then((value) {
       setState(() {
         animated = true;
       });

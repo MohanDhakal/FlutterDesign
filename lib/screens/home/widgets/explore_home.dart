@@ -20,17 +20,19 @@ class Explore extends StatelessWidget {
             imagePath: this.imagePath,
             title: this.title,
             subtitle: this.subtitle),
-        transitionDuration: Duration(milliseconds: 500),
+        transitionDuration: Duration(milliseconds: 800),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          const begin = Offset(0, 1);
-          const end = Offset(0, 0);
-          const curve = Curves.easeOut;
-          // Animation<double> animation= ;
+          // const begin = Offset(0, 1);
+          // const end = Offset(0, 0);
+          const curve = Curves.easeInOut;
+
           var tween =
-              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+              Tween<double>(begin: 0.5, end: 1).chain(CurveTween(curve: curve));
+          // var tween =
+          //     Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
           print(animation.value);
-          return SlideTransition(
-            position: animation.drive(tween),
+          return FadeTransition(
+            opacity: animation.drive(tween),
             child: child,
           );
         },
