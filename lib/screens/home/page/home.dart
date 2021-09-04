@@ -17,10 +17,13 @@ import 'package:get/get.dart';
 class HomeUI extends StatelessWidget {
   final name = "Alex";
 
-  final HomeController _homeController = Get.put(HomeController(),);
+  final HomeController _homeController = Get.put(
+    HomeController(),
+  );
 
   @override
   Widget build(BuildContext context) {
+
     return Material(
       child: SingleChildScrollView(
         physics: ClampingScrollPhysics(),
@@ -102,9 +105,10 @@ class HomeUI extends StatelessWidget {
                         Positioned(
                           left: 16.w,
                           top: 11.h,
-                          child:
-                          SvgPicture.asset("assets/images/search.svg",
-                              height: 14.h,width: 14.w,color: Color(0x99000000)),
+                          child: SvgPicture.asset("assets/images/search.svg",
+                              height: 14.h,
+                              width: 14.w,
+                              color: Color(0x99000000)),
                           // child: Icon(
                           //   Icons.search_rounded,
                           //   size: 14,
@@ -180,28 +184,49 @@ class HomeUI extends StatelessWidget {
                       SizedBox(
                         height: 16.h,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-
-                          Category(
-                            icon: "assets/images/meditate.svg",
-                            name: 'Calm',
-                          ),
-                          Category(
-                            icon: "assets/images/sleep.svg",
-                            name: 'Sleep',
-                          ),
-                          Category(
-                            icon: "assets/images/relationship.svg",
-                            name: 'Relationship',
-                          ),
-                          Category(
-                            icon: "assets/images/anxiety.svg",
-                            name: 'Anxiety',
-                          ),
-                        ],
-                      ),
+                      GetX<HomeController>(builder: (controller) {
+                        var categories = controller.categories;
+                        print(categories.elementAt(0).isActive);
+                        return Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Category(
+                              name: categories.elementAt(0).name,
+                              icon: categories.elementAt(0).imagePath,
+                              index: 0,
+                            ),
+                            Category(
+                              name: categories.elementAt(1).name,
+                              icon: categories.elementAt(1).imagePath,
+                              index: 1,
+                            ),
+                            Category(
+                              name: categories.elementAt(2).name,
+                              icon: categories.elementAt(2).imagePath,
+                              index: 2,
+                            ),
+                            Category(
+                              name: categories.elementAt(3).name,
+                              icon: categories.elementAt(3).imagePath,
+                              index: 3,
+                            ),
+                          ],
+                        );
+                      })
+                      // ? ListView.builder(
+                      //     itemCount: _homeController.categories.length,
+                      //     scrollDirection: Axis.horizontal,
+                      //     itemBuilder: (context, index) {
+                      //       var element = _homeController.categories
+                      //           .elementAt(index);
+                      //       print(element.name);
+                      //       return Category(
+                      //         name: element.name,
+                      //         icon: element.imagePath,
+                      //         index: index,
+                      //       );
+                      //     })
+                      // : null,
                     ],
                   ),
                 ),
