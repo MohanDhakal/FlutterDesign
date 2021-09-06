@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter_bloc_test/controller/explore_controller.dart';
 import 'package:flutter_bloc_test/screens/explore/page/explore_detail.dart';
+import 'package:flutter_bloc_test/utils/core/assets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 class Explore extends StatelessWidget {
@@ -20,31 +20,31 @@ class Explore extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // timeDilation = 1.0;
-    Route _createRoute() {
-      return PageRouteBuilder(
-        pageBuilder: (context, animation, secondaryAnimation) => ExploreDetail(
-            imagePath: this.imagePath,
-            title: this.title,
-            id: this.id,
-            subtitle: this.subtitle),
-        // transitionDuration: Duration(milliseconds: 500),
-        transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          // const begin = Offset(0, 1);
-          // const end = Offset(0, 0);
-          const curve = Curves.easeInOut;
-
-          var tween =
-              Tween<double>(begin: 0.6, end: 1).chain(CurveTween(curve: curve));
-          // var tween =
-          //     Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-          // print(animation.value);
-          return FadeTransition(
-            opacity: animation.drive(tween),
-            child: child,
-          );
-        },
-      );
-    }
+    // Route _createRoute() {
+    //   return PageRouteBuilder(
+    //     pageBuilder: (context, animation, secondaryAnimation) => ExploreDetail(
+    //         imagePath: this.imagePath,
+    //         title: this.title,
+    //         id: this.id,
+    //         subtitle: this.subtitle),
+    //     // transitionDuration: Duration(milliseconds: 500),
+    //     transitionsBuilder: (context, animation, secondaryAnimation, child) {
+    //       // const begin = Offset(0, 1);
+    //       // const end = Offset(0, 0);
+    //       const curve = Curves.easeInOut;
+    //
+    //       var tween =
+    //           Tween<double>(begin: 0.6, end: 1).chain(CurveTween(curve: curve));
+    //       // var tween =
+    //       //     Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+    //       // print(animation.value);
+    //       return FadeTransition(
+    //         opacity: animation.drive(tween),
+    //         child: child,
+    //       );
+    //     },
+    //   );
+    // }
 
     return Container(
       width: 153.w,
@@ -77,9 +77,24 @@ class Explore extends StatelessWidget {
                               title: this.title,
                               id: this.id,
                               subtitle: this.subtitle)),
-                          child: Image.asset(
-                            imagePath,
-                            fit: BoxFit.cover,
+                          child: Stack(
+                            children: [
+                              Image.asset(
+                                imagePath,
+                                fit: BoxFit.cover,
+                              ),
+                              Positioned(
+                                left:7,
+                                top:7,
+                                child: SvgPicture.asset(
+                                  logo,
+                                  width: 16.w,
+                                  height: 17.h,
+                                  color: Colors.white,
+                                ),
+                              ),
+
+                            ],
                           ),
                         ),
                       ),

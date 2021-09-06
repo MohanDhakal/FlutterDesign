@@ -11,7 +11,6 @@ class ExploreController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-
     SystemChrome.setEnabledSystemUIOverlays([]);
     Future.delayed(Duration(milliseconds: 300)).then((value) {
       animated = animated.toggle();
@@ -34,6 +33,7 @@ class ExploreController extends GetxController {
         "assets/images/healing.png");
 
     musics.addAll([m1, m2, m3, m4]);
+
   }
 
   void setMusicAtIndex(int i) {
