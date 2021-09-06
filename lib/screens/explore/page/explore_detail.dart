@@ -1,69 +1,58 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_bloc_test/controller/explore_controller.dart';
 import 'package:flutter_bloc_test/utils/core/colors.dart';
 import 'package:flutter_bloc_test/screens/explore/widgets/music_explore.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_getx_widget.dart';
 
-class ExploreDetail extends StatefulWidget {
-  final imagePath, title, subtitle;
+class ExploreDetail extends StatelessWidget {
+  final imagePath, title, subtitle, id;
 
-  const ExploreDetail({Key? key, this.imagePath, this.title, this.subtitle})
+  ExploreDetail({Key? key, this.imagePath, this.title, this.subtitle, this.id})
       : super(key: key);
-
-  @override
-  _ExploreDetailState createState() => _ExploreDetailState();
-}
-
-class _ExploreDetailState extends State<ExploreDetail> {
-  bool selected = false;
-  bool animated = false;
-
-  @override
-  void initState() {
-    super.initState();
-    SystemChrome.setEnabledSystemUIOverlays([]);
-    Future.delayed(Duration(milliseconds: 300)).then((value) {
-      setState(() {
-        animated = true;
-      });
-    });
-    // Duration(milliseconds: 500)
-  }
+  final _exploreController = Get.put(ExploreController());
 
   @override
   Widget build(BuildContext context) {
+    // print(id);
+    timeDilation = 1.5;
     return Material(
       child: Container(
         child: Stack(
           children: [
             Positioned(
-                child: Image.asset(
-                  widget.imagePath,
-                  height: 336.h,
-                  width: 375.w,
-                  fit: BoxFit.cover,
-                )),
+                child: Hero(
+              tag: this.id,
+              child: Image.asset(
+                this.imagePath,
+                height: 336.h,
+                width: 375.w,
+                fit: BoxFit.cover,
+              ),
+            )),
             Positioned(
               top: 44.h,
               left: 26.h,
               child: InkWell(
-                onTap: () {
-                  setState(() {
-                    animated = !animated;
-                  });
-                  Future.delayed(Duration(milliseconds:100 )).then((value) {
-                    print(value);
-                    Navigator.pop(context);
-                  });
-                },
-                child: Icon(
-                  Icons.arrow_back_ios,
-                  color: Colors.white,
-                  size: 26.w,
-                ),
-              ),
+                  child: Icon(
+                    Icons.arrow_back_ios,
+                    color: Colors.white,
+                    size: 26.w,
+                  ),
+                  onTap: () {
+                    _exploreController.animated =
+                        _exploreController.animated.toggle();
+                    print(_exploreController.animated);
+                    Future.delayed(Duration(milliseconds: 100)).then((value) {
+                      // print(value);
+                      // Navigator.pop(context);
+                      Get.back();
+                    });
+                  }),
             ),
             Positioned(
                 top: 46.h,
@@ -78,7 +67,7 @@ class _ExploreDetailState extends State<ExploreDetail> {
               top: 173.h,
               left: 26.w,
               child: Text(
-                widget.title,
+                this.title,
                 style: TextStyle(
                     fontWeight: FontWeight.w700,
                     fontSize: 26.sp,
@@ -89,7 +78,7 @@ class _ExploreDetailState extends State<ExploreDetail> {
               top: 208.h,
               left: 26.w,
               child: Text(
-                widget.subtitle,
+                this.subtitle,
                 style: TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 15.sp,
@@ -148,20 +137,30 @@ class _ExploreDetailState extends State<ExploreDetail> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: EdgeInsets.only(
-                                  left: 26.w, top: 16.h, bottom: 16.h),
-                              child: GestureDetector(
-                                onTap: () {
-                                  setState(() => selected = !selected);
-                                },
-                                child: SvgPicture.asset(
-                                  "assets/images/heart.svg",
-                                  height: 20.h,
-                                  color: selected ? Color(0xFF9797DE) : null,
-                                  width: 20.w,
-                                ),
-                              ),
-                            ),
+                                padding: EdgeInsets.only(
+                                    left: 26.w, top: 16.h, bottom: 16.h),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    _exploreController.selected =
+                                        _exploreController.selected.toggle();
+                                    // print(_exploreController.selected);
+                                    // print(
+                                    //     " values${_exploreController.selected.value}");
+                                    // setState(() => selected = !selected);
+                                  },
+                                  child: GetX<ExploreController>(
+                                    builder: (_exp) {
+                                      return SvgPicture.asset(
+                                        "assets/images/heart.svg",
+                                        height: 20.h,
+                                        color: _exp.selected.value
+                                            ? Color(0xFF9797DE)
+                                            : null,
+                                        width: 20.w,
+                                      );
+                                    }
+                                  ),
+                                )),
                             Padding(
                               padding: EdgeInsets.only(left: 26.0, top: 16.h),
                               child: SvgPicture.asset(
@@ -172,36 +171,51 @@ class _ExploreDetailState extends State<ExploreDetail> {
                             ),
                           ],
                         ),
-
-                        Column(
-                          children: [
-                            Music(
-                              isPlaying: false,
-                            ),
-                            Music(isPlaying: false),
-                            Music(isPlaying: true)
-                          ],
-                        )
+                        LimitedBox(
+                            child: _exploreController.musics.length > 0
+                                ? ListView.builder(
+                                    shrinkWrap: true,
+                                    itemCount: _exploreController.musics.length,
+                                    itemBuilder: (context, index) {
+                                      var element = _exploreController.musics
+                                          .elementAt(index);
+                                      return MusiContainer(
+                                          title: element.title,
+                                          subtitle: element.subtitle,
+                                          index: index,
+                                          imagePath: element.imagePath,
+                                          isPlaying: element.isPlaying);
+                                    })
+                                : SizedBox()),
+                        // Column(
+                        //   children: [
+                        //     MusiContainer(
+                        //       isPlaying: false,
+                        //       title: widget.title,
+                        //       subtitle: widget.subtitle,
+                        //     ),
+                        //   ],
+                        // )
                       ],
                     ),
                   ),
-                  AnimatedPositioned(
-                      duration: Duration(milliseconds: 200),
-                      curve: Curves.easeInOut,
-                      top: -36.h,
-                      width: 80.w,
-                      height: 80.h,
-                      right: animated ? 23.w : -20.w,
-                      child: AnimatedOpacity(
+                  GetX<ExploreController>(builder: (controller) {
+                    return AnimatedPositioned(
                         duration: Duration(milliseconds: 200),
                         curve: Curves.easeInOut,
-                        opacity: animated ? 1 : 0.5,
-                        child: Image.asset(
-                          "assets/images/play.png",
-                          height: 80.h,
-                          width: 80.w,
-                        ),
-                      ))
+                        top: -36.h,
+                        height: 80.h,
+                        width: 80.w,
+                        right: controller.animated.value ? 23.w : -20.w,
+                        child: AnimatedOpacity(
+                          duration: Duration(milliseconds: 200),
+                          curve: Curves.easeInOut,
+                          opacity: controller.animated.value ? 1 : 0.5,
+                          child: Image.asset(
+                            "assets/images/play.png",
+                          ),
+                        ));
+                  })
                   // ] ),
                 ],
               ),
@@ -210,11 +224,5 @@ class _ExploreDetailState extends State<ExploreDetail> {
         ),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
   }
 }

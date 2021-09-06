@@ -26,6 +26,7 @@ class Category extends StatelessWidget {
         // print('here');
         _hmc.setActiveCategoryAtIndex(index);
       },
+      customBorder: CircleBorder(),
       child: Column(
         children: [
           Container(
@@ -40,6 +41,7 @@ class Category extends StatelessWidget {
                   BoxShadow(
                       color: Color(0x1A51515F),
                       blurRadius: 5.r,
+                      spreadRadius: 2.r,
                       offset: Offset(0, 2))
                 ]),
             child: SvgPicture.asset(

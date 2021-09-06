@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc_test/controller/home_controller.dart';
 import 'package:flutter_bloc_test/utils/core/colors.dart';
 import 'package:flutter_bloc_test/screens/home/widgets/category_home.dart';
-import 'package:flutter_bloc_test/utils/home/card_data.dart';
-import 'package:flutter_bloc_test/utils/home/explore_data.dart';
-import 'package:flutter_bloc_test/utils/home/favorites_data.dart';
 import 'package:flutter_bloc_test/screens/home/widgets/card_home.dart';
 import 'package:flutter_bloc_test/screens/home/widgets/explore_home.dart';
 import 'package:flutter_bloc_test/screens/home/widgets/favorites_home.dart';
@@ -23,7 +19,6 @@ class HomeUI extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Material(
       child: SingleChildScrollView(
         physics: ClampingScrollPhysics(),
@@ -89,7 +84,7 @@ class HomeUI extends StatelessWidget {
                                     offset: Offset(0, 4),
                                     color: Color(0x3351515F),
                                     // spreadRadius: 2.r,
-                                    blurRadius: 80.r)
+                                    blurRadius: 40.r)
                               ]),
                           child: TextFormField(
                               enabled: false,
@@ -142,7 +137,7 @@ class HomeUI extends StatelessWidget {
                                 color: Color(0x3351515F),
                                 offset: Offset(0, 7),
                                 // spreadRadius: 4.r,
-                                blurRadius: 20.r)
+                                blurRadius: 10.r)
                           ],
                           color: filterBtn),
                       child: SvgPicture.asset(
@@ -357,16 +352,13 @@ class HomeUI extends StatelessWidget {
                             scrollDirection: Axis.horizontal,
                             itemCount: controller.explorations.length,
                             itemBuilder: (context, index) {
+                              var exp =
+                                  controller.explorations.elementAt(index);
                               return Explore(
-                                imagePath: controller.explorations
-                                    .elementAt(index)
-                                    .imagePath,
-                                title: controller.explorations
-                                    .elementAt(index)
-                                    .title,
-                                subtitle: controller.explorations
-                                    .elementAt(index)
-                                    .subtitle,
+                                imagePath: exp.imagePath,
+                                id: index,
+                                title: exp.title,
+                                subtitle: exp.subtitle,
                               );
                             })
                         : SizedBox();

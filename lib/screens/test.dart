@@ -9,13 +9,12 @@ class WidgetTestScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Material(
-      child: Center(
-        child: Explore(imagePath: ExploreData.imagePath1, title: ExploreData.title1, subtitle: ExploreData.subtitle1)
-      ),
-    ));
+    return Container();
+    // return SafeArea(
+    //     child: Material(
+    //   child: Center(
+    //     child: Explore(imagePath: ExploreData.imagePath1, title: ExploreData.title1, subtitle: ExploreData.subtitle1)
+    //   ),
+    // ));
   }
 }
-
-

@@ -4,6 +4,7 @@ import 'package:flutter_bloc_test/middleware/local/home.dart';
 import 'package:flutter_bloc_test/models/home/category.dart';
 import 'package:flutter_bloc_test/models/home/explore.dart';
 import 'package:flutter_bloc_test/models/home/favorites.dart';
+import 'package:flutter_bloc_test/models/home/music.dart';
 import 'package:flutter_bloc_test/models/home/recommendation.dart';
 import 'package:get/get.dart';
 
@@ -26,7 +27,7 @@ class HomeController extends GetxController {
   // }
 
   void setActiveCategoryAtIndex(int i) {
-    print('in category function');
+    // print('in category function');
     if (categories.elementAt(i).isActive == false) {
       categories.elementAt(i).isActive = true;
       categories.refresh();
@@ -73,6 +74,7 @@ class HomeController extends GetxController {
     Category ct3 = Category("Relationship", "assets/images/relationship.svg");
     Category ct4 = Category("Anxiety", "assets/images/anxiety.svg");
     categories.addAll([ct1, ct2, ct3, ct4]);
+
   }
 
   @override

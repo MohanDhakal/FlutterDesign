@@ -59,6 +59,7 @@ class _FavoritesState extends State<Favorites> {
               "assets/images/heart.svg",
               height: 20.h,
               color: selected ? Color(0xFF9797DE) : null,
+              fit: BoxFit.cover,
               width: 20.w,
             ),
           )

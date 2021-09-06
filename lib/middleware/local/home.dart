@@ -10,7 +10,6 @@ class LocalService {
     String jsonString =
     await rootBundle.loadString("assets/data/favorites.json");
     return jsonString;
-
   }
   static Future<String> fetchExplores()async{
     String jsonString =
