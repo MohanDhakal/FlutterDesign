@@ -1,17 +1,22 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc_test/screens/maps/map.dart';
 import 'package:flutter_bloc_test/utils/core/colors.dart';
-import 'package:flutter_bloc_test/screens/explore/page/explore_detail.dart';
-import 'package:flutter_bloc_test/screens/test.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'screens/home/page/home.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:location/location.dart';
+
+import 'screens/home/page/home.dart';
+
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -31,3 +36,36 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    return Scaffold(
+      body: Container(
+        padding: EdgeInsets.all(20),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
+          // crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text("Google Maps Demo"),
+            GestureDetector(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => GoogleMapScreen()));
+                },
+                child: Center(child: Icon(Icons.golf_course))),
+            SizedBox(
+              height: 50,
+            ),
+            Text("Modal Sheet Demo"),
+            GestureDetector(
+                onTap: () {}, child: Center(child: Icon(Icons.engineering)))
+          ],
+        ),
+      ),
+    );
+  }
+}
+

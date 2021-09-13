@@ -31,6 +31,9 @@ dependencies:
   flutter_svg: ^0.22.0
   flutter_screenutil: ^5.0.0+2
   get: ^4.3.8
+  google_maps_flutter: ^2.0.8
+  location: ^4.2.0
+  geocoding: ^2.0.1
 
 dev_dependencies:
   flutter_test:
@@ -73,6 +76,9 @@ flutter:
     - assets/data/recommendations.json
     - assets/data/explores.json
     - assets/data/favorites.json
+    - assets/images/heart.svg
+    - assets/images/paperplus.svg
+    - assets/images/send.svg
 
     # - images/a_dot_ham.jpeg
 

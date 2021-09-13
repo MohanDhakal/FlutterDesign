@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc_test/controller/explore_controller.dart';
+import 'package:flutter_bloc_test/screens/explore/widgets/bottomsheet.dart';
 import 'package:flutter_bloc_test/utils/core/colors.dart';
 import 'package:flutter_bloc_test/screens/explore/widgets/music_explore.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -148,25 +149,34 @@ class ExploreDetail extends StatelessWidget {
                                     //     " values${_exploreController.selected.value}");
                                     // setState(() => selected = !selected);
                                   },
-                                  child: GetX<ExploreController>(
-                                    builder: (_exp) {
-                                      return SvgPicture.asset(
-                                        "assets/images/heart.svg",
-                                        height: 20.h,
-                                        color: _exp.selected.value
-                                            ? Color(0xFF9797DE)
-                                            : null,
-                                        width: 20.w,
-                                      );
-                                    }
-                                  ),
+                                  child:
+                                      GetX<ExploreController>(builder: (_exp) {
+                                    return SvgPicture.asset(
+                                      "assets/images/heart.svg",
+                                      height: 20.h,
+                                      color: _exp.selected.value
+                                          ? Color(0xFF9797DE)
+                                          : null,
+                                      width: 20.w,
+                                    );
+                                  }),
                                 )),
                             Padding(
                               padding: EdgeInsets.only(left: 26.0, top: 16.h),
-                              child: SvgPicture.asset(
-                                "assets/images/menu.svg",
-                                height: 20.h,
-                                width: 20.w,
+                              child: InkWell(
+                                onTap: () {
+                                  showModalBottomSheet(
+                                      context: context,
+                                      backgroundColor: Colors.transparent,
+                                      builder: (context) {
+                                        return CustomBtnActionSheet();
+                                      });
+                                },
+                                child: SvgPicture.asset(
+                                  "assets/images/menu.svg",
+                                  height: 20.h,
+                                  width: 20.w,
+                                ),
                               ),
                             ),
                           ],
