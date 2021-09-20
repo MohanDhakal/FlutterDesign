@@ -19,7 +19,7 @@ class CustomBtnActionSheet extends StatelessWidget {
           Container(
             width: 133.w,
             height: 4.h,
-            margin: EdgeInsets.only(top: 25,bottom: 18),
+            margin: EdgeInsets.only(top: 25,bottom: 12),
             decoration: BoxDecoration(
                 color: Colors.black, borderRadius: BorderRadius.circular(2)),
           ),
@@ -52,16 +52,16 @@ class Action extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(
-        left: 32,
-        top: 22,
+        left: 32.w,
+        top: 22.h,
       ),
       color: Colors.transparent,
       child: Row(
         children: [
-          SvgPicture.asset(
+          Image.asset(
             assetIcon,
             width: 17.w,
-            color: Colors.black,
+            // color: Colors.black,
             height: 20.h,
           ),
           Padding(

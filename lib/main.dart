@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc_test/screens/maps/map.dart';
+import 'package:flutter_bloc_test/screens/playmusic.dart';
 import 'package:flutter_bloc_test/utils/core/colors.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
             primarySwatch: Colors.blue,
             accentColor: background,
             fontFamily: 'HelveticaNeue'),
-        home: HomeUI(),
+        home: PlayMusicScreen(),
       ),
     );
   }
