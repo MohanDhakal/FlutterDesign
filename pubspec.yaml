@@ -34,6 +34,10 @@ dependencies:
   google_maps_flutter: ^2.0.8
   location: ^4.2.0
   geocoding: ^2.0.1
+  carousel_slider: ^4.0.0
+  introduction_screen: ^2.1.0
+  dots_indicator: ^2.0.0
+  smooth_page_indicator: ^1.0.0+2
 
 dev_dependencies:
   flutter_test:
@@ -79,6 +83,14 @@ flutter:
     - assets/images/heart.svg
     - assets/images/paperplus.svg
     - assets/images/send.svg
+    - assets/images/songsnepal/1.svg
+    - assets/images/songsnepal/2.svg
+    - assets/images/songsnepal/musicrafiki1.png
+    - assets/images/songsnepal/playlistrafiki1.png
+    - assets/images/songsnepal/headphonepana1.png
+    - assets/images/songsnepal/customshape1.png
+    - assets/images/songsnepal/customshape2.png
+    - assets/images/songsnepal/customshape3.png
 
     # - images/a_dot_ham.jpeg
 
