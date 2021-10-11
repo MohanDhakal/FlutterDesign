@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc_test/screens/maps/map.dart';
 import 'package:flutter_bloc_test/screens/playmusic.dart';
+import 'package:flutter_bloc_test/screens/songsnepal/genre_list.dart';
+import 'package:flutter_bloc_test/screens/songsnepal/home.dart';
 import 'package:flutter_bloc_test/screens/songsnepal/spalshscreen.dart';
 import 'package:flutter_bloc_test/screens/songsnepal/test.dart';
 import 'package:flutter_bloc_test/utils/core/colors.dart';
@@ -11,9 +13,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:location/location.dart';
 import 'screens/home/page/home.dart';
-import 'screens/songsnepal/mainonboarding.dart';
-import 'screens/songsnepal/newscreen.dart';
-import 'screens/songsnepal/onboarding2.dart';
+import 'screens/songsnepal/favorites.dart';
 
 void main() {
   runApp(MyApp());
@@ -32,14 +32,16 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           routes: <String, WidgetBuilder>{
             '/OnBoardingPage': (BuildContext context) => OnBoardingTest(),
-            '/SplashScreen': (BuildContext context) => SplashScreen()
+            '/SplashScreen': (BuildContext context) => SplashScreen(),
+            '/ChooseFavouriteScreen': (BuildContext context) =>
+                ChooseFavourites()
           },
           // color: background,
           theme: ThemeData(
               primarySwatch: Colors.blue,
               accentColor: background,
-              fontFamily: 'HelveticaNeue'),
-          home: SplashScreen()),
+              fontFamily: 'Sofia Pro'),
+          home: GenreList()),
     );
   }
 }

@@ -2,6 +2,7 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnBoardingTest extends StatefulWidget {
@@ -161,9 +162,14 @@ class _OnBoardingTestState extends State<OnBoardingTest>
                           )),
                           InkWell(
                             onTap: () {
-                              pageController.animateToPage(++intoPage,
-                                  duration: Duration(milliseconds: 500),
-                                  curve: Curves.easeIn);
+                              print("page: $intoPage");
+                              if (intoPage < 2) {
+                                pageController.animateToPage(++intoPage,
+                                    duration: Duration(milliseconds: 500),
+                                    curve: Curves.easeIn);
+                              } else {
+                                Get.offNamed("/ChooseFavouriteScreen");
+                              }
                             },
                             child: Container(
                               height: 49.w,

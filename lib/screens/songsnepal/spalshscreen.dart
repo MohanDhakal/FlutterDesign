@@ -1,8 +1,5 @@
-import 'dart:math';
-
 import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc_test/screens/songsnepal/mainonboarding.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -70,28 +67,10 @@ class _SplashScreenState extends State<SplashScreen> {
                 ],
               ),
             ),
-            // MaterialButton(
-            //   onPressed: () {
-            //     _changeOrientation();
-            //   },
-            //   child: Center(child: Text("Start")),
-            // ),
           ],
         ),
       ),
     );
   }
 
-  _changeOrientation() {
-    // Future.delayed(Duration(milliseconds: 1000)).then((value){
-    // });
-    setState(() {
-      fromLeftImage = 127.w;
-      fromLeftText = 115.w;
-    });
-  }
 }
-
-// class MoveCurve extends Curve {
-//   double transform(double t) => ;
-// }

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="175" height="172" viewBox="0 0 175 172">
+  <defs>
+    <filter id="bruce-mars-DBGwy7s3QY0-unsplash" x="0" y="0" width="175" height="172" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feFlood flood-opacity="0.102"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_1121" data-name="Group 1121" transform="translate(15 11.965)">
+    <g transform="matrix(1, 0, 0, 1, -15, -11.96)" filter="url(#bruce-mars-DBGwy7s3QY0-unsplash)">
+      <rect id="bruce-mars-DBGwy7s3QY0-unsplash-2" data-name="bruce-mars-DBGwy7s3QY0-unsplash" width="145" height="142" rx="5" transform="translate(15 12)" fill="#2185d0"/>
+    </g>
+    <path id="bruce-mars-DBGwy7s3QY0-unsplash-3" data-name="bruce-mars-DBGwy7s3QY0-unsplash" d="M-7.676,0H75.661c5.272-.378,7.131,2.31,6.937,6.982v120.63c0,2.526-34.156-4.528-48.136-19.973s-4.184-34.892-12.85-45.42-34.144-9.712-42.736-24.665S-11.507,0-7.676,0Z" transform="translate(62.402 0.035)" fill="rgba(255,255,255,0.2)"/>
+  </g>
+</svg>

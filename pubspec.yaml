@@ -85,6 +85,23 @@ flutter:
     - assets/images/send.svg
     - assets/images/songsnepal/1.svg
     - assets/images/songsnepal/2.svg
+    - assets/images/songsnepal/home/1.svg
+    - assets/images/songsnepal/bottomnav/home.svg
+    - assets/images/songsnepal/bottomnav/podcast.svg
+    - assets/images/songsnepal/bottomnav/premium.svg
+    - assets/images/songsnepal/bottomnav/profile.svg
+    - assets/images/songsnepal/home/VEK-bibek-waiba.png
+    - assets/images/songsnepal/home/adspace.png
+    - assets/images/songsnepal/home/freshpick1.png
+    - assets/images/songsnepal/home/image.png
+    - assets/images/songsnepal/home/img.png
+    - assets/images/songsnepal/home/pic.png
+    - assets/images/songsnepal/genre/el1.png
+    - assets/images/songsnepal/genre/el2.png
+    - assets/images/songsnepal/genre/el3.png
+    - assets/images/songsnepal/genre/el4.png
+    - assets/images/songsnepal/logo.svg
+    - assets/images/songsnepal/searchicon.svg
     - assets/images/songsnepal/musicrafiki1.png
     - assets/images/songsnepal/playlistrafiki1.png
     - assets/images/songsnepal/headphonepana1.png
@@ -114,6 +131,16 @@ flutter:
           weight: 500
         - asset: assets/fonts/HelveticaNeue-Thin.otf
           weight: 100
+    - family: Sofia Pro
+      fonts:
+        - asset: assets/fonts/SofiaProRegular.ttf
+          weight: 400
+        - asset: assets/fonts/SofiaProLight.ttf
+          weight: 300
+        - asset: assets/fonts/SofiaProMedium.ttf
+          weight: 500
+        - asset: assets/fonts/SofiaProBold.ttf
+          weight: 700
 
   #   - family: Trajan Pro
   #     fonts:
