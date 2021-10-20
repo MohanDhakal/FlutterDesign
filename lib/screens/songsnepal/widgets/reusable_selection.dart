@@ -1,23 +1,29 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc_test/controller/reusable_controller.dart';
+import 'package:flutter_bloc_test/enums/page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class Genre extends StatefulWidget {
+class ReusableSelection extends StatefulWidget {
   final String imageUri;
   final String labelText;
+  final ReusablePage page;
 
-  Genre({Key? key, required this.imageUri, required this.labelText})
+  ReusableSelection(
+      {Key? key,
+      required this.page,
+      required this.imageUri,
+      required this.labelText})
       : super(key: key);
 
   @override
-  _GenreState createState() => _GenreState();
+  _ReusableSelectionState createState() => _ReusableSelectionState();
 }
 
-class _GenreState extends State<Genre> {
+class _ReusableSelectionState extends State<ReusableSelection> {
   bool isSelected = false;
   final genreController = Get.find<GenreController>();
+  final artistController = Get.find<ArtistController>();
 
   @override
   Widget build(BuildContext context) {
@@ -28,11 +34,7 @@ class _GenreState extends State<Genre> {
             setState(() {
               isSelected = !isSelected;
             });
-            if (isSelected) {
-              genreController.addCount();
-            } else {
-              genreController.removeCount();
-            }
+            handleSelection();
           },
           child: Stack(
             children: [
@@ -90,5 +92,23 @@ class _GenreState extends State<Genre> {
         ),
       ],
     );
+  }
+
+  handleSelection() {
+    if (isSelected) {
+      if (widget.page == ReusablePage.genre) {
+        print("gender count added");
+        genreController.addCount();
+      } else {
+        print(" artist count added");
+        artistController.addCount();
+      }
+    } else {
+      if (widget.page == ReusablePage.genre) {
+        genreController.removeCount();
+      } else {
+        artistController.removeCount();
+      }
+    }
   }
 }

@@ -23,7 +23,7 @@ class FreshPickItem extends StatelessWidget {
       width: 145.w,
       height: 188.h,
       // color: Colors.red,
-      margin: EdgeInsets.only(right: 10),
+      padding: EdgeInsets.only(right: 15.w),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

@@ -1,10 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc_test/controller/reusable_controller.dart';
+import 'package:flutter_bloc_test/enums/page.dart';
 import 'package:flutter_bloc_test/screens/maps/map.dart';
 import 'package:flutter_bloc_test/screens/playmusic.dart';
 import 'package:flutter_bloc_test/screens/songsnepal/genre_list.dart';
 import 'package:flutter_bloc_test/screens/songsnepal/home.dart';
+import 'package:flutter_bloc_test/screens/songsnepal/loading_screen_main.dart';
+import 'package:flutter_bloc_test/screens/songsnepal/reusable_list.dart';
 import 'package:flutter_bloc_test/screens/songsnepal/spalshscreen.dart';
 import 'package:flutter_bloc_test/screens/songsnepal/test.dart';
 import 'package:flutter_bloc_test/utils/core/colors.dart';
@@ -26,7 +30,7 @@ class MyApp extends StatelessWidget {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
         statusBarColor: background, statusBarBrightness: Brightness.dark));
     return ScreenUtilInit(
-      designSize: Size(375, 812),
+      designSize: Size(375, 855),
       builder: () => GetMaterialApp(
           title: 'Flutter Demo',
           debugShowCheckedModeBanner: false,
@@ -41,7 +45,7 @@ class MyApp extends StatelessWidget {
               primarySwatch: Colors.blue,
               accentColor: background,
               fontFamily: 'Sofia Pro'),
-          home: GenreList()),
+          home: SongsNepalHome()),
     );
   }
 }

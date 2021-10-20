@@ -38,7 +38,7 @@ dependencies:
   introduction_screen: ^2.1.0
   dots_indicator: ^2.0.0
   smooth_page_indicator: ^1.0.0+2
-
+  flutter_spinkit: ^5.1.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -102,12 +102,17 @@ flutter:
     - assets/images/songsnepal/genre/el4.png
     - assets/images/songsnepal/logo.svg
     - assets/images/songsnepal/searchicon.svg
+    - assets/images/songsnepal/musicnotes.svg
     - assets/images/songsnepal/musicrafiki1.png
     - assets/images/songsnepal/playlistrafiki1.png
     - assets/images/songsnepal/headphonepana1.png
     - assets/images/songsnepal/customshape1.png
     - assets/images/songsnepal/customshape2.png
     - assets/images/songsnepal/customshape3.png
+    - assets/images/songsnepal/artists/1.png
+    - assets/images/songsnepal/artists/2.png
+    - assets/images/songsnepal/artists/3.png
+
 
     # - images/a_dot_ham.jpeg
 

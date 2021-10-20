@@ -1,0 +1,1 @@
+enum ReusablePage{genre,artist}

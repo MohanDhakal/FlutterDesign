@@ -23,7 +23,7 @@ class TrendingItem extends StatelessWidget {
       width: 145.w,
       height: 188.h,
       // color: Colors.red,
-      margin: EdgeInsets.only(right: 10),
+      padding: EdgeInsets.only(right: 15.w),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -59,7 +59,7 @@ class TrendingItem extends StatelessWidget {
             ],
           ),
           SizedBox(
-            height: 15.h,
+            height: 10.h,
           ),
 
           Padding(
@@ -74,7 +74,7 @@ class TrendingItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
-                "$totalTracks",
+                "$totalDuration",
                 style: TextStyle(
                     color: Color(0xFF757575),
                     fontWeight: FontWeight.w300,
@@ -91,7 +91,7 @@ class TrendingItem extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 5.0),
                 child: Text(
-                  "$totalDuration",
+                  "$totalTracks",
                   style: TextStyle(
                       color: Color(0xFF757575),
                       fontWeight: FontWeight.w300,

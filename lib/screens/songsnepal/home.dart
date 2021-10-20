@@ -121,38 +121,38 @@ class _SongsNepalHomeState extends State<SongsNepalHome> {
             ], begin: Alignment(1, -1), end: Alignment(-0.5, 0.5)),
           ),
           child: SingleChildScrollView(
-            child: Container(
-              margin: EdgeInsets.only(left: 20.w, right: 20.w),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(top: 20.w),
-                        child: SvgPicture.asset(
-                          "assets/images/songsnepal/logo.svg",
-                          width: 66.w,
-                          height: 31.h,
-                        ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(top: 20.w,left:18.w),
+                      child: SvgPicture.asset(
+                        "assets/images/songsnepal/logo.svg",
+                        width: 66.w,
+                        height: 31.h,
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(top: 20.w),
-                        child: Icon(
-                          CupertinoIcons.gear,
-                          size: 24,
-                          color: Colors.black54,
-                        ),
-                      )
-                    ],
-                  ),
-                  SizedBox(
-                    height: 11.h,
-                  ),
-                  RichText(
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 20.w),
+                      child: Icon(
+                        CupertinoIcons.gear,
+                        size: 24,
+                        color: Colors.black54,
+                      ),
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: 11.h,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left:18.w),
+                  child: RichText(
                       text: TextSpan(children: [
                     TextSpan(
                         text: "Good",
@@ -167,58 +167,61 @@ class _SongsNepalHomeState extends State<SongsNepalHome> {
                             fontSize: 25.sp,
                             fontWeight: FontWeight.w400))
                   ])),
-                  SizedBox(
-                    height: 20.h,
-                  ),
-                  SizedBox(
-                    width: 337.w,
-                    height: 36.h,
-                    child: TextFormField(
-                        textAlign: TextAlign.left,
-                        decoration: InputDecoration(
-                            prefixIcon: Row(
-                              children: [
-                                Padding(
-                                  padding:
-                                      EdgeInsets.only(left: 11.w, right: 8.w),
-                                  child: SvgPicture.asset(
-                                    "assets/images/songsnepal/searchicon.svg",
-                                    height: 11.h,
-                                    width: 11.w,
-                                    fit: BoxFit.scaleDown,
-                                  ),
+                ),
+                SizedBox(
+                  height: 20.h,
+                ),
+                Container(
+                  width: 337.w,
+                  height: 36.h,
+                  padding: EdgeInsets.only(left:18.w),
+                  child: TextFormField(
+                      textAlign: TextAlign.left,
+                      decoration: InputDecoration(
+                          prefixIcon: Row(
+                            children: [
+                              Padding(
+                                padding:
+                                    EdgeInsets.only(left: 11.w, right: 8.w),
+                                child: SvgPicture.asset(
+                                  "assets/images/songsnepal/searchicon.svg",
+                                  height: 11.h,
+                                  width: 11.w,
+                                  fit: BoxFit.scaleDown,
                                 ),
-                                Text(
-                                  "Artists, songs or podcasts",
-                                  style: TextStyle(
-                                    fontSize: 13.sp,
-                                    fontWeight: FontWeight.w300,
-                                  ),
-                                )
-                              ],
-                            ),
-                            contentPadding: EdgeInsets.only(
-                                right: 10, left: 0, top: 0, bottom: 0),
-                            filled: true,
-                            fillColor: Colors.white,
-                            focusedBorder: InputBorder.none,
-                            disabledBorder: InputBorder.none,
-                            border: OutlineInputBorder(
-                                // borderSide: BorderSide(
-                                //     color: Color(0x4D707070).withOpacity(0),
-                                //     width: 1.0),
-                                borderRadius: BorderRadius.circular(8.r)))),
-                  ),
-                  SizedBox(
-                    height: 20.h,
-                  ),
-                  TrendingList(),
-                  SizedBox(
-                    height: 30.h,
-                  ),
-                  Container(
-                    height: 102.h,
-                    width: 332.h,
+                              ),
+                              Text(
+                                "Artists, songs or podcasts",
+                                style: TextStyle(
+                                  fontSize: 13.sp,
+                                  fontWeight: FontWeight.w300,
+                                ),
+                              )
+                            ],
+                          ),
+                          contentPadding: EdgeInsets.only(
+                              right: 10, left: 0, top: 0, bottom: 0),
+                          filled: true,
+                          fillColor: Colors.white,
+                          focusedBorder: InputBorder.none,
+                          disabledBorder: InputBorder.none,
+                          border: OutlineInputBorder(
+                              // borderSide: BorderSide(
+                              //     color: Color(0x4D707070).withOpacity(0),
+                              //     width: 1.0),
+                              borderRadius: BorderRadius.circular(8.r)))),
+                ),
+                SizedBox(
+                  height: 20.h,
+                ),
+                TrendingList(),
+                SizedBox(
+                  height: 30.h,
+                ),
+                Center(
+                  child: Container(
+                    height: 112.h,
+                    width: 332.w,
                     decoration: BoxDecoration(
                         color: Colors.red,
                         boxShadow: [
@@ -231,6 +234,8 @@ class _SongsNepalHomeState extends State<SongsNepalHome> {
                         image: DecorationImage(
                           image: AssetImage(
                             "assets/images/songsnepal/home/adspace.png",
+
+
                           ),
                           fit: BoxFit.none,
                         )),
@@ -243,27 +248,27 @@ class _SongsNepalHomeState extends State<SongsNepalHome> {
                     //       fit: BoxFit.none),
                     // )
                   ),
-                  SizedBox(
-                    height: 30.h,
-                  ),
-                  FreshPickList(),
-                  SizedBox(
-                    height: 20.h,
-                  ),
-                  ArtistList(),
-                  SizedBox(
-                    height: 20.h,
-                  ),
-                  PopularPlaylist(),
-                  SizedBox(
-                    height: 20.h,
-                  ),
-                  MoodsMusicList(),
-                  SizedBox(
-                    height: 20.h,
-                  ),
-                ],
-              ),
+                ),
+                SizedBox(
+                  height: 30.h,
+                ),
+                FreshPickList(),
+                SizedBox(
+                  height: 20.h,
+                ),
+                ArtistList(),
+                SizedBox(
+                  height: 20.h,
+                ),
+                PopularPlaylist(),
+                SizedBox(
+                  height: 20.h,
+                ),
+                MoodsMusicList(),
+                SizedBox(
+                  height: 20.h,
+                ),
+              ],
             ),
           ),
         ),

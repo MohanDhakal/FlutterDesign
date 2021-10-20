@@ -19,9 +19,11 @@ class Popular extends StatelessWidget {
     return Container(
       width: 145.w,
       height: 244.h,
-      margin: EdgeInsets.only(right: 10, bottom: 10.h),
+      margin: EdgeInsets.only(right: 10.w, bottom: 10.h,),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(5.r),
+        borderRadius: BorderRadius.circular(5.r),
+          // borderRadius: BorderRadius.only(
+          //     topLeft: Radius.circular(5.r), topRight: Radius.circular(5.r)),
           color: Colors.white,
           boxShadow: [
             BoxShadow(
@@ -38,7 +40,8 @@ class Popular extends StatelessWidget {
                 width: 145.w,
                 height: 128.h,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10.r),
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(5.r), topRight: Radius.circular(5.r)),
                     image: DecorationImage(
                         fit: BoxFit.none,
                         image: AssetImage(
