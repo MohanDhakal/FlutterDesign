@@ -136,7 +136,7 @@ flutter:
           weight: 500
         - asset: assets/fonts/HelveticaNeue-Thin.otf
           weight: 100
-    - family: Sofia Pro
+    - family: SofiaPro
       fonts:
         - asset: assets/fonts/SofiaProRegular.ttf
           weight: 400

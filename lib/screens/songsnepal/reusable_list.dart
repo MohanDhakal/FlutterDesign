@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc_test/controller/reusable_controller.dart';
+import 'package:flutter_bloc_test/controller/songsnepal/reusable_controller.dart';
 import 'package:flutter_bloc_test/enums/page.dart';
+import 'package:flutter_bloc_test/screens/songsnepal/artist_picker.dart';
+import 'package:flutter_bloc_test/screens/songsnepal/home.dart';
 import 'package:flutter_bloc_test/screens/songsnepal/widgets/reusable_selection.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-
-import 'widgets/genre.dart';
 
 class ReusableList extends StatelessWidget {
   final titleTag;
@@ -56,31 +56,35 @@ class ReusableList extends StatelessWidget {
                 child: TextFormField(
                     textAlign: TextAlign.left,
                     decoration: InputDecoration(
-                        prefixIcon: Row(
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.only(left: 20.w),
-                              child: Text(
-                                "Search",
-                                style: TextStyle(
-                                  fontSize: 13,
-                                  fontWeight: FontWeight.w300,
-                                  color: Color(0xFF8C8C8C),
-                                ),
+                      prefixIcon: Row(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(left: 20.w),
+                            child: Text(
+                              "Search",
+                              style: TextStyle(
+                                fontSize: 13.sp,
+                                fontWeight: FontWeight.w300,
+                                color: Color(0xFF8C8C8C),
                               ),
-                            )
-                          ],
-                        ),
-                        contentPadding: EdgeInsets.only(
-                            right: 10, left: 0, top: 0, bottom: 0),
-                        filled: true,
-                        fillColor: Color(0xFFF2F2F2),
-                        focusedBorder: InputBorder.none,
-                        disabledBorder: InputBorder.none,
-                        border: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Color(0x59707070), width: 1.0),
-                            borderRadius: BorderRadius.circular(8.r)))),
+                            ),
+                          )
+                        ],
+                      ),
+                      contentPadding: EdgeInsets.only(
+                          right: 10, left: 0, top: 0, bottom: 0),
+                      // filled: true,
+                      // fillColor: Color(0xFFF2F2F2),
+                      disabledBorder: InputBorder.none,
+                      focusedBorder: OutlineInputBorder(
+                          borderSide:
+                          BorderSide(color: Colors.blue, width: 1.0),
+                          borderRadius: BorderRadius.circular(8.r)),
+                      enabledBorder: OutlineInputBorder(
+                          borderSide:
+                              BorderSide(color: Color(0x4D707070), width: 1.0),
+                          borderRadius: BorderRadius.circular(8.r)),
+                    )),
               ),
             ),
             SizedBox(
@@ -157,12 +161,23 @@ class ReusableList extends StatelessWidget {
               child: Container(
                 width: 121.w,
                 height: 45.h,
+
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(24.r),
                 ),
                 child: MaterialButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    if (reusablePage == ReusablePage.artist) {
+                      Get.toNamed(
+                        "/FindingMusicScreen",
+                      );
+                    } else {
+                      Get.to(ArtistPicker(),
+                          transition: Transition.leftToRight,
+                          preventDuplicates: false);
+                    }
+                  },
                   child: Text(
                     "Done",
                     style: TextStyle(
@@ -180,12 +195,15 @@ class ReusableList extends StatelessWidget {
             child: AnimatedOpacity(
               opacity: count > 0 ? 0 : 1,
               duration: Duration(milliseconds: 400),
-              child: Text(
-                "Skip",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18.sp,
-                    decoration: TextDecoration.underline),
+              child: GestureDetector(
+                onTap: () {},
+                child: Text(
+                  "Skip",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18.sp,
+                      decoration: TextDecoration.underline),
+                ),
               ),
             ));
   }

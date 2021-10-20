@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc_test/enums/page.dart';
+import 'package:flutter_bloc_test/screens/songsnepal/reusable_list.dart';
 import 'package:flutter_bloc_test/screens/songsnepal/widgets/favorite.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class ChooseFavourites extends StatelessWidget {
   const ChooseFavourites({Key? key}) : super(key: key);
@@ -39,7 +42,7 @@ class ChooseFavourites extends StatelessWidget {
               height: 50.h,
             ),
             Container(
-              margin: EdgeInsets.only(left:33.w,right: 10.w),
+              margin: EdgeInsets.only(left: 22.w, right: 10.w),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -50,7 +53,7 @@ class ChooseFavourites extends StatelessWidget {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(left:33.w,right: 10.w,top: 20.h),
+              margin: EdgeInsets.only(left: 22.w, right: 10.w, top: 20.h),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -61,7 +64,7 @@ class ChooseFavourites extends StatelessWidget {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(left:33.w,right: 10.w,top: 20.h),
+              margin: EdgeInsets.only(left: 33.w, right: 10.w, top: 20.h),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -75,7 +78,9 @@ class ChooseFavourites extends StatelessWidget {
             ),
             Center(
               child: MaterialButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.toNamed("/GenrePickerScreen");
+                },
                 child: Container(
                   width: 175.w,
                   height: 48.h,
@@ -101,8 +106,11 @@ class ChooseFavourites extends StatelessWidget {
               height: 20.h,
             ),
             GestureDetector(
-              onTap: (){
-                // Get.to()
+              onTap: () {
+                Get.toNamed('/GenrePickerScreen');
+                // Get.to(ReusableList(
+                //     titleTag: "Choose 3 or more genre you like.",
+                //     reusablePage: ReusablePage.genre));
               },
               child: Center(
                   child: Text(

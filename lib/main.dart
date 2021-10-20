@@ -1,16 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_bloc_test/controller/reusable_controller.dart';
+import 'package:flutter_bloc_test/controller/songsnepal/reusable_controller.dart';
 import 'package:flutter_bloc_test/enums/page.dart';
 import 'package:flutter_bloc_test/screens/maps/map.dart';
 import 'package:flutter_bloc_test/screens/playmusic.dart';
-import 'package:flutter_bloc_test/screens/songsnepal/genre_list.dart';
+import 'package:flutter_bloc_test/dummy/genre_list.dart';
+import 'package:flutter_bloc_test/screens/songsnepal/artist_picker.dart';
+import 'package:flutter_bloc_test/screens/songsnepal/genre_picker.dart';
 import 'package:flutter_bloc_test/screens/songsnepal/home.dart';
 import 'package:flutter_bloc_test/screens/songsnepal/loading_screen_main.dart';
 import 'package:flutter_bloc_test/screens/songsnepal/reusable_list.dart';
 import 'package:flutter_bloc_test/screens/songsnepal/spalshscreen.dart';
 import 'package:flutter_bloc_test/screens/songsnepal/test.dart';
+import 'package:flutter_bloc_test/screens/test.dart';
 import 'package:flutter_bloc_test/utils/core/colors.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -37,15 +40,19 @@ class MyApp extends StatelessWidget {
           routes: <String, WidgetBuilder>{
             '/OnBoardingPage': (BuildContext context) => OnBoardingTest(),
             '/SplashScreen': (BuildContext context) => SplashScreen(),
+            '/GenrePickerScreen': (BuildContext context) => GenrePicker(),
+            '/ArtistPickerScreen': (BuildContext context) => ArtistPicker(),
             '/ChooseFavouriteScreen': (BuildContext context) =>
-                ChooseFavourites()
+                ChooseFavourites(),
+            '/SongsNepalHome': (BuildContext context) => SongsNepalHome(),
+            '/FindingMusicScreen': (BuildContext context) => FindingMusic(),
           },
           // color: background,
           theme: ThemeData(
               primarySwatch: Colors.blue,
               accentColor: background,
-              fontFamily: 'Sofia Pro'),
-          home: SongsNepalHome()),
+              fontFamily: 'SofiaPro'),
+          home: SplashScreen()),
     );
   }
 }

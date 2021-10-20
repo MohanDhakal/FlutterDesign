@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc_test/controller/reusable_controller.dart';
+import 'package:flutter_bloc_test/controller/songsnepal/reusable_controller.dart';
 import 'package:flutter_bloc_test/enums/page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -69,7 +69,13 @@ class _ReusableSelectionState extends State<ReusableSelection> {
                     )),
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: Colors.blue.shade500,
+                      gradient: LinearGradient(
+                          colors: [
+                            Color(0xFF8C37F6),
+                            Color(0xFF1431FB),
+                          ],
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter),
                     ),
                   ),
                 ),

@@ -2,9 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:get/get.dart';
 
-class FindingMusic extends StatelessWidget {
+class FindingMusic extends StatefulWidget {
   const FindingMusic({Key? key}) : super(key: key);
+
+  @override
+  _FindingMusicState createState() => _FindingMusicState();
+}
+
+class _FindingMusicState extends State<FindingMusic> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(
+      Duration(milliseconds: 2000),
+    ).then((value) {
+      Get.offAllNamed(
+        "/SongsNepalHome",
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

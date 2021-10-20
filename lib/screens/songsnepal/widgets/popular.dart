@@ -72,7 +72,7 @@ class Popular extends StatelessWidget {
             padding: const EdgeInsets.only(left: 8.0),
             child: Text(
               "Hits of the moment",
-              style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w400),
+              style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w500),
             ),
           ),
           SizedBox(
@@ -80,9 +80,13 @@ class Popular extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 8.0),
-            child: Text(
-              "Top 50 biggest hits in the world right now.",
-              style: TextStyle(fontSize: 11.sp, fontWeight: FontWeight.w300),
+            child: SizedBox(
+              width: 109.w,
+
+              child: Text(
+                "Top 50 biggest hits in the world right now.",
+                style: TextStyle(fontSize: 11.sp, fontWeight: FontWeight.w300),
+              ),
             ),
           ),
         ],

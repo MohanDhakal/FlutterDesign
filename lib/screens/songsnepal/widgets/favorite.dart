@@ -35,8 +35,8 @@ class _FavoriteItemState extends State<FavoriteItem>
         });
       },
       child: AnimatedContainer(
-        height: 32.h,
-        width: 100.w,
+        height: 37.h,
+        width: 102.w,
         duration: Duration(milliseconds: 200),
         margin: EdgeInsets.only(right: 10.w),
         decoration: BoxDecoration(
@@ -47,32 +47,38 @@ class _FavoriteItemState extends State<FavoriteItem>
                     Color(0xFF1431FB),
                   ], begin: Alignment.topCenter, end: Alignment.bottomCenter)
                 : null,
-            borderRadius: BorderRadius.all(Radius.circular(16.r))),
+            borderRadius: BorderRadius.all(Radius.circular(18.r))),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.only(left:4.w,),
+              padding: EdgeInsets.only(left:5.w,top: 5.h,bottom: 5.h),
               child: AnimatedContainer(
                 duration: Duration(milliseconds: 200),
                 width: 22.w,
                 height: 22.w,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color:selected?Colors.white: Colors.black54,
+                  color: selected ? Colors.white : Colors.black54,
                 ),
                 child: Align(
                   alignment: Alignment.center,
-                  child:selected?Icon(Icons.done,color: Colors.blue,size:10.w ,): Icon(
-                    CupertinoIcons.plus,
-                    size: 10.w,
-                    color: Colors.white,
-                  ),
+                  child: selected
+                      ? Icon(
+                          Icons.done,
+                          color: Colors.blue,
+                          size: 10.w,
+                        )
+                      : Icon(
+                          CupertinoIcons.plus,
+                          size: 10.w,
+                          color: Colors.white,
+                        ),
                 ),
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 7.h,left:10.w, bottom: 7.h),
+              padding: EdgeInsets.only(top: 7.h, left: 10.w, bottom: 7.h),
               child: Text(
                 "${widget.name}",
                 style: TextStyle(

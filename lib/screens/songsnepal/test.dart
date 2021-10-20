@@ -162,7 +162,7 @@ class _OnBoardingTestState extends State<OnBoardingTest>
                           )),
                           InkWell(
                             onTap: () {
-                              print("page: $intoPage");
+                              // print("page: $intoPage");
                               if (intoPage < 2) {
                                 pageController.animateToPage(++intoPage,
                                     duration: Duration(milliseconds: 500),

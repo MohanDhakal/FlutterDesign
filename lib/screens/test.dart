@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc_test/screens/songsnepal/widgets/genre.dart';
+import 'package:flutter_bloc_test/dummy/genre.dart';
 import 'package:flutter_bloc_test/utils/home/card_data.dart';
 import 'package:flutter_bloc_test/utils/home/explore_data.dart';
 import 'package:flutter_bloc_test/screens/home/widgets/card_home.dart';
@@ -11,11 +11,22 @@ class WidgetTestScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-
-      child: Center(
-        child: Genre(
-            imageUri: "assets/images/songsnepal/genre/el2.png",
-            labelText: "Adhunik"),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            "Font Checking bold",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          Text(
+            "Font Checking thin",
+            style: TextStyle(fontWeight: FontWeight.w300),
+          ),
+          Text(
+            "Font Checking normal",
+            style: TextStyle(),
+          ),
+        ],
       ),
     );
 

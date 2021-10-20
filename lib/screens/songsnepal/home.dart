@@ -18,6 +18,7 @@ class SongsNepalHome extends StatefulWidget {
 
 class _SongsNepalHomeState extends State<SongsNepalHome> {
   int currentPageNumber = 0;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -130,7 +131,7 @@ class _SongsNepalHomeState extends State<SongsNepalHome> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(top: 20.w,left:18.w),
+                      padding: EdgeInsets.only(top: 20.w, left: 18.w),
                       child: SvgPicture.asset(
                         "assets/images/songsnepal/logo.svg",
                         width: 66.w,
@@ -138,7 +139,7 @@ class _SongsNepalHomeState extends State<SongsNepalHome> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(top: 20.w),
+                      padding: EdgeInsets.only(top: 20.w, right: 18.w),
                       child: Icon(
                         CupertinoIcons.gear,
                         size: 24,
@@ -151,7 +152,7 @@ class _SongsNepalHomeState extends State<SongsNepalHome> {
                   height: 11.h,
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left:18.w),
+                  padding: EdgeInsets.only(left: 18.w),
                   child: RichText(
                       text: TextSpan(children: [
                     TextSpan(
@@ -174,42 +175,41 @@ class _SongsNepalHomeState extends State<SongsNepalHome> {
                 Container(
                   width: 337.w,
                   height: 36.h,
-                  padding: EdgeInsets.only(left:18.w),
+                  padding: EdgeInsets.only(left: 18.w),
                   child: TextFormField(
                       textAlign: TextAlign.left,
                       decoration: InputDecoration(
-                          prefixIcon: Row(
-                            children: [
-                              Padding(
-                                padding:
-                                    EdgeInsets.only(left: 11.w, right: 8.w),
-                                child: SvgPicture.asset(
-                                  "assets/images/songsnepal/searchicon.svg",
-                                  height: 11.h,
-                                  width: 11.w,
-                                  fit: BoxFit.scaleDown,
-                                ),
+                        prefixIcon: Row(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(left: 11.w, right: 8.w),
+                              child: SvgPicture.asset(
+                                "assets/images/songsnepal/searchicon.svg",
+                                height: 11.h,
+                                width: 11.w,
+                                fit: BoxFit.scaleDown,
                               ),
-                              Text(
-                                "Artists, songs or podcasts",
-                                style: TextStyle(
-                                  fontSize: 13.sp,
-                                  fontWeight: FontWeight.w300,
-                                ),
-                              )
-                            ],
-                          ),
-                          contentPadding: EdgeInsets.only(
-                              right: 10, left: 0, top: 0, bottom: 0),
-                          filled: true,
-                          fillColor: Colors.white,
-                          focusedBorder: InputBorder.none,
-                          disabledBorder: InputBorder.none,
-                          border: OutlineInputBorder(
-                              // borderSide: BorderSide(
-                              //     color: Color(0x4D707070).withOpacity(0),
-                              //     width: 1.0),
-                              borderRadius: BorderRadius.circular(8.r)))),
+                            ),
+                            Text(
+                              "Artists, songs or podcasts",
+                              style: TextStyle(
+                                fontSize: 13.sp,
+                                fontWeight: FontWeight.w300,
+                              ),
+                            )
+                          ],
+                        ),
+                        contentPadding: EdgeInsets.only(
+                            right: 10, left: 0, top: 0, bottom: 0),
+                        filled: true,
+                        fillColor: Colors.white,
+                        focusedBorder: InputBorder.none,
+                        disabledBorder: InputBorder.none,
+                        enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Color(0x4D707070), width: 1.0),
+                            borderRadius: BorderRadius.circular(8.r)),
+                      )),
                 ),
                 SizedBox(
                   height: 20.h,
@@ -223,7 +223,7 @@ class _SongsNepalHomeState extends State<SongsNepalHome> {
                     height: 112.h,
                     width: 332.w,
                     decoration: BoxDecoration(
-                        color: Colors.red,
+                        // color: Colors.red,
                         boxShadow: [
                           BoxShadow(
                               offset: Offset(0, 3),
@@ -234,8 +234,6 @@ class _SongsNepalHomeState extends State<SongsNepalHome> {
                         image: DecorationImage(
                           image: AssetImage(
                             "assets/images/songsnepal/home/adspace.png",
-
-
                           ),
                           fit: BoxFit.none,
                         )),
