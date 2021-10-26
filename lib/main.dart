@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc_test/controller/songsnepal/reusable_controller.dart';
 import 'package:flutter_bloc_test/enums/page.dart';
 import 'package:flutter_bloc_test/screens/maps/map.dart';
+import 'package:flutter_bloc_test/screens/metrotest/gmaillogin.dart';
 import 'package:flutter_bloc_test/screens/playmusic.dart';
 import 'package:flutter_bloc_test/dummy/genre_list.dart';
 import 'package:flutter_bloc_test/screens/songsnepal/artist_picker.dart';
@@ -52,7 +53,7 @@ class MyApp extends StatelessWidget {
               primarySwatch: Colors.blue,
               accentColor: background,
               fontFamily: 'SofiaPro'),
-          home: SplashScreen()),
+          home: GmailLogin()),
     );
   }
 }
